@@ -54,8 +54,34 @@ def get_books_by_publisher(dictionary, publisher_name):
             
       return number_books
 
-get_books_by_publisher(book_dictionary, "Kensington Publishing Corp.")
+#get_books_by_publisher(book_dictionary, "Kensington Publishing Corp.")
 
 # Function 8: get_all_categories_for_book_title
+def get_all_categories_for_book_title(dictionary, book_title):
+
+      category_with_book = set()
+      number_books = 0
+
+      print(f"The book title {book_title} belongs to the following categories:")
+
+      times_looped = 0
+      # loop through all keys so we have category for everything
+      for category in dictionary.keys():
+            # get list of books in every category from dictionary (held as value of key)
+            for books_in_category in dictionary.values():
+                  for book in books_in_category:
+                        times_looped += 1
+                        if (book_title == book.get('title')):
+                              category_with_book.add(category)
+
+      # loop through all caterogies (filtered by set) and print out result
+      for category in category_with_book:
+            number_books += 1
+            #print(f"Category {number_books}: \"{category}\"")
+      
+      print("bro i ran", times_looped, "times...")
+      return number_books
+
+get_all_categories_for_book_title(book_dictionary, "Antiques Roadkill: A Trash 'n' Treasures Mystery")
 
 file.close()
