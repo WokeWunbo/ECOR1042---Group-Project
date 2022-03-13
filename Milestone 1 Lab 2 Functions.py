@@ -36,18 +36,20 @@ def get_all_categories_for_book_title(dictionary, book_title):
 
       print(f"The book title {book_title} belongs to the following categories:")
       
+      looped_amount = 0
       # get every key in the dictionary 
       for category in dictionary:
             # check the title of the books stored in category key
             for book in dictionary.get(category):
                   # if title matches, put in set so it filters out duplicates
+                  looped_amount+=1
                   if book.get('title') == book_title:
                         category_with_book.add(category)
-                        
+      print("looped", looped_amount, "times")                  
       # loop through all caterogies (filtered by set) and print out result
       for category in category_with_book:
             number_books += 1
-            print(f"Category {number_books}: \"{category}\"")
+            #print(f"Category {number_books}: \"{category}\"")
 
       return number_books
 

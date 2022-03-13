@@ -33,9 +33,9 @@ def book_category_dictionary(file_name : str) -> dict:
             "title" : book_information[0],
             "author" : book_information[1],
             "language " : book_information[5],
-            "rating" : book_information[2],
+            "rating" : book_information[2] != 'N/A' and book_information[2],
             "publisher" : book_information[3],
-            "pages" : book_information[4]
+            "pages" : int(book_information[4])
             })
             
             # if category key doesn't exist inside book_dictionary, then create one, then add the new book in its appropriate value
