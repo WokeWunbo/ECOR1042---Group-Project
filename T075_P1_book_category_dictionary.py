@@ -33,7 +33,7 @@ def book_category_dictionary(file_name : str) -> dict:
             "title" : book_information[0],
             "author" : book_information[1],
             "language " : book_information[5],
-            "rating" : book_information[2] != 'N/A' and book_information[2],
+            "rating" : book_information[2] != 'N/A' and float(book_information[2]),
             "publisher" : book_information[3],
             "pages" : int(book_information[4])
             })
