@@ -8,6 +8,20 @@ def book_category_dictionary(file_name : str) -> dict:
       the category.
       
       Precondition: file path may not be found, use r"FILE_PATH" as argument when calling
+      
+      >>> book_category_dictionary("google_books_dataset.csv")
+      book_dictionary = {
+            "Fiction":[ {
+                        "title": "Antiques Roadkill: A Trash 'n' Treasures Mystery",
+                        "author": " Barbara Allan",
+                        "language ": "English",
+                        "rating": 3.3,
+                        "publisher": " Kensington Publishing Corp.",
+                        "pages": 288
+                        },
+                        {another element},
+                        ...
+                   ]
       """
       
       file = open(file_name, "r")
