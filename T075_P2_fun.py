@@ -1,8 +1,7 @@
-import T075_P1_book_category_dictionary
+# Arun Karki 101219923
 
-# Get book_dictionary
-file_name = "google_books_dataset.csv"
-book_dictionary = T075_P1_book_category_dictionary.book_category_dictionary(file_name)
+# imports
+import T075_P1_book_category_dictionary
 
 # Function 7: get_books_by_publisher
 def get_books_by_publisher(dictionary, publisher_name):
@@ -26,8 +25,6 @@ def get_books_by_publisher(dictionary, publisher_name):
             
       return number_books
 
-#get_books_by_publisher(book_dictionary, "Kensington Publishing Corp.")
-
 # Function 8: get_all_categories_for_book_title
 def get_all_categories_for_book_title(dictionary, book_title):
 
@@ -36,21 +33,29 @@ def get_all_categories_for_book_title(dictionary, book_title):
 
       print(f"The book title {book_title} belongs to the following categories:")
       
-      looped_amount = 0
       # get every key in the dictionary 
       for category in dictionary:
             # check the title of the books stored in category key
             for book in dictionary.get(category):
                   # if title matches, put in set so it filters out duplicates
-                  looped_amount+=1
                   if book.get('title') == book_title:
-                        category_with_book.add(category)
-      print("looped", looped_amount, "times")                  
+                        category_with_book.add(category)              
+                        
       # loop through all caterogies (filtered by set) and print out result
       for category in category_with_book:
             number_books += 1
-            #print(f"Category {number_books}: \"{category}\"")
+            print(f"Category {number_books}: \"{category}\"")
 
       return number_books
 
+# Main Script
+
+# Get book_dictionary
+file_name = "google_books_dataset.csv"
+book_dictionary = T075_P1_book_category_dictionary.book_category_dictionary(file_name)
+
+# Test Call Function 7
+get_books_by_publisher(book_dictionary, "Kensington Publishing Corp.")
+
+# Test Call Function 8
 get_all_categories_for_book_title(book_dictionary, "Antiques Roadkill: A Trash 'n' Treasures Mystery")
