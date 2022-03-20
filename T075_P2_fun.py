@@ -8,17 +8,13 @@ def get_books_by_publisher(dictionary : dict[list], publisher_name : str):
       """Return the number of books published by a given publisher and print the book information
       
       >>> get_books_by_publisher(book_dictionary, "Kensington Publishing Corp.")
-      The publisher Kensington Publishing Corp. has published the following books:
-      Book 1: "Antiques Roadkill: A Trash 'n' Treasures Mystery" by "Barbara Allan"
-      Book 2: "Antiques Knock-Off" by "Barbara Allan"
+      2
       >>> get_books_by_publisher(book_dictionary, "Marvel Entertainment")
-      Book 1: "Ultimate Spider-Man Vol. 11: Carnage" by "Brian Michael Bendis"
-      Book 2: "Immortal Hulk Vol. 1: Or Is He Both?" by "Al Ewing"
-      Book 3: "Spider-Man: Anti-Venom" by "Dan Slott"
-      Book 4: "Venomized" by "Cullen Bunn"
-      Book 5: "Deadpool Kills the Marvel Universe" by "Cullen Bunn"
-      Book 6: "Spider-Verse: Volume 1" by "Dan Slott"
+      6
+      >>> get_books_by_publisher(book_dictionary, "Hachette UK")
+      12
       """
+      
       books_with_publisher = set()
       number_books = 0
       
@@ -35,7 +31,7 @@ def get_books_by_publisher(dictionary : dict[list], publisher_name : str):
             number_books += 1
             title, author = book # unpack tuple containing information inside set
             print(f"Book {number_books}: \"{title}\" by \"{author}\"")        
-            
+      
       return number_books
 
 # Function 8: get_all_categories_for_book_title
@@ -43,12 +39,12 @@ def get_all_categories_for_book_title(dictionary : dict[list], book_title : str)
       """Return number of times a is present in all categories and print the category
       
       >>> get_all_categories_for_book_title(book_dictionary, "Antiques Roadkill: A Trash 'n' Treasures Mystery")
-      The book title Antiques Roadkill: A Trash 'n' Treasures Mystery belongs to the following categories:
-      Category 1: "Mystery"  
-      Category 2: "Fiction"  
-      Category 3: "Detective"
+      3
       >>> get_all_categories_for_book_title(book_dictionary, "Deadpool Kills the Marvel Universe")
+      1
+      >>> get_all_categories_for_book_title(book_dictionary, "Little Girl Lost: A Lucy Black Thriller")
       """
+      
       category_with_book = set()
       number_books = 0
 
@@ -75,5 +71,4 @@ def get_all_categories_for_book_title(dictionary : dict[list], book_title : str)
 file_name = "google_books_dataset.csv"
 book_dictionary = T075_P1_book_category_dictionary.book_category_dictionary(file_name)
 
-# Test Call Function 8
-get_all_categories_for_book_title(book_dictionary, "Deadpool Kills the Marvel Universe")
+print("# of books was", get_all_categories_for_book_title(book_dictionary, "Little Girl Lost: A Lucy Black Thriller"))
