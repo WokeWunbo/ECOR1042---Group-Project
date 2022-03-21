@@ -4,7 +4,7 @@
 import T075_P1_book_category_dictionary
 
 # Function 7: get_books_by_publisher
-def get_books_by_publisher(dictionary : dict[list], publisher_name : str):
+def get_books_by_publisher(dictionary : dict[list], publisher_name : str) -> int:
       """Return the number of books published by a given publisher and print the book information
       
       >>> get_books_by_publisher(book_dictionary, "Kensington Publishing Corp.")
@@ -35,7 +35,7 @@ def get_books_by_publisher(dictionary : dict[list], publisher_name : str):
       return number_books
 
 # Function 8: get_all_categories_for_book_title
-def get_all_categories_for_book_title(dictionary : dict[list], book_title : str):
+def get_all_categories_for_book_title(dictionary : dict[list], book_title : str) -> int:
       """Return number of times a is present in all categories and print the category
       
       >>> get_all_categories_for_book_title(book_dictionary, "Antiques Roadkill: A Trash 'n' Treasures Mystery")
@@ -43,6 +43,7 @@ def get_all_categories_for_book_title(dictionary : dict[list], book_title : str)
       >>> get_all_categories_for_book_title(book_dictionary, "Deadpool Kills the Marvel Universe")
       1
       >>> get_all_categories_for_book_title(book_dictionary, "Little Girl Lost: A Lucy Black Thriller")
+      3
       """
       
       category_with_book = set()
@@ -64,11 +65,3 @@ def get_all_categories_for_book_title(dictionary : dict[list], book_title : str)
             print(f"Category {number_books}: \"{category}\"")
 
       return number_books
-
-# delete below part, not needed for submission !
-
-# Get book_dictionary
-file_name = "google_books_dataset.csv"
-book_dictionary = T075_P1_book_category_dictionary.book_category_dictionary(file_name)
-
-print("# of books was", get_all_categories_for_book_title(book_dictionary, "Little Girl Lost: A Lucy Black Thriller"))
