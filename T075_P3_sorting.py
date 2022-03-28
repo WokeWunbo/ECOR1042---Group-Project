@@ -5,7 +5,7 @@ from T075_P1_book_category_dictionary import book_category_dictionary
 
 # Function 1: sort_books_author
 def sort_books_author(dictionary : dict) -> list:
-    
+
     """Return a list of books with book being sorted in alphabetic order using author's name. Will also filter repeating books and
     add book with all its categories.
     
