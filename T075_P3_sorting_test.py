@@ -11,7 +11,12 @@ def check_equal(description : str, actual_value, expected_value) -> int:
     """Return whether a bool expected value is equal to an actual value. Also check for the type to make sure they match.
     Print wether the test passed or not, and what the test was for. Return 1 for 'true', 0 for 'false'
     
-    >>> 
+    >>> check_equal("sort_books_title(dictionary)[0] appears before sort_books_title(dictionary)[1]", sort_books_title(dictionary)[0]['title'] <= sort_books_title(dictionary)[1]['title'], True)
+    1
+    >>> check_equal("sort_books_title(dictionary)[0] appears before sort_books_title(dictionary)[1]", sort_books_title(dictionary)[3]['title'] <= sort_books_title(dictionary)[2]['title'], False)
+    1
+    >>> check_equal("sort_books_title(dictionary)[0] appears before sort_books_title(dictionary)[1]", sort_books_title(dictionary)[4]['title'] <= sort_books_title(dictionary)[6]['title'], False)
+    0
     """
     type_check, value_check = type(actual_value) != type(expected_value), actual_value != expected_value
     
@@ -30,14 +35,13 @@ if __name__ == "__main__":
     dictionary = book_category_dictionary(file_name)
     total, passes = 0, 0
 
-    passes += check_equal("sort_books_title(dictionary)[0] appears before sort_books_title(dictionary)[1]", sort_books_title(dictionary)[0]['title'] <= sort_books_title(dictionary)[1]['title'], True)
+    passes += check_equal(f"{sort_books_title(dictionary)[0].get('title')} appears before {sort_books_title(dictionary)[1].get('title')}", sort_books_title(dictionary)[0].get('title') <= sort_books_title(dictionary)[1].get('title'), True)
     total += 1
     
-    passes += check_equal("sort_books_title(dictionary)[0] appears before sort_books_title(dictionary)[1]", sort_books_title(dictionary)[3]['title'] <= sort_books_title(dictionary)[2]['title'], False)
+    passes += check_equal(f"{sort_books_title(dictionary)[3].get('title')} appears before {sort_books_title(dictionary)[2].get('title')}", sort_books_title(dictionary)[3].get('title') <= sort_books_title(dictionary)[2].get('title'), False)
     total += 1
     
-    passes += check_equal("sort_books_title(dictionary)[0] appears before sort_books_title(dictionary)[1]", sort_books_title(dictionary)[4]['title'] <= sort_books_title(dictionary)[6]['title'], True)
+    passes += check_equal(f"{sort_books_title(dictionary)[4].get('title')} appears before {sort_books_title(dictionary)[6].get('title')}", sort_books_title(dictionary)[4].get('title') <= sort_books_title(dictionary)[6].get('title'), False)
     total += 1
     
     print(f"Total Passes: {passes}\nTotal Fails: {total-passes}")
-    pass 
