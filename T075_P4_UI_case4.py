@@ -42,15 +42,18 @@ def UI() -> None:
             if request.upper() in options:
                 # all sorting-related options
                 if request == sort_key:
+                    print("How do you want to sort")
                     sort_by = input('\tT)itle R)ate P)ublisher A)uthor: ').upper()
                     options = ('T', 'R', 'P', 'A')
                     # if the options are available then sort the books by whatever is asked
                     if sort_by in options:
                         dictionary = book_category_dictionary(file_name)
-                        if sort_by == 'T' : sort_books_title(dictionary)
-                        elif sort_by == 'R' : sort_books_ascending_rate(dictionary)
-                        elif sort_by == 'P' : sort_books_publisher(dictionary)
-                        elif sort_key == 'A' : sort_books_author(dictionary)
+                        result = None
+                        if sort_by == 'T' : result = sort_books_title(dictionary)
+                        elif sort_by == 'R' : result = sort_books_ascending_rate(dictionary)
+                        elif sort_by == 'P' : result = sort_books_publisher(dictionary)
+                        elif sort_key == 'A' : result = sort_books_author(dictionary)
+                        print(result)
             # notify user that an invalid option has been chosen
             else:
                 print("No such command")
