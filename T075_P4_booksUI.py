@@ -6,7 +6,7 @@
 # imports
 from T075_P3_sorting_fun import *
 from T075_P1_load_data import book_category_dictionary
-from T075_P2_add_remove_search_dataset import *#add_book, remove_book
+from T075_P2_add_remove_search_dataset import *
 
 # Function authors have been commented before every function.
 
